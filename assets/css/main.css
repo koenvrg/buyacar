@@ -1,0 +1,275 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0F111A;
+    color: #E5E5E5;
+}
+
+main {
+    flex: 1 0 auto;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 20px; /* optionele padding voor kleine schermen */
+}
+
+.site-header {
+    padding: 10px 10px;
+    border-bottom: 1px solid #333745;
+}
+
+.site-footer {
+    border-bottom: 1px solid #333745;
+}
+
+
+.site-logo img {
+    height: 2.5em; /* Ongeveer dezelfde hoogte als een h1 */
+    width: auto;   /* Breedte schaalt mee */
+    vertical-align: middle;
+}
+
+
+.site-footer {
+    border-top: 1px solid #333745;
+    text-align: center;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    color: #FF3B3B;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav a {
+    color: #FF3B3B;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    color: #FF3B3B;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #333745;
+    text-align: left;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #FF3B3B;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.btn-primary:hover {
+    background-color: #E63939;
+}
+
+.table-btn {
+    color: #FF3B3B;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.table-btn:hover {
+    text-decoration: underline;
+}
+
+form input, form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+}
+
+form input {
+    background-color: #252836;
+    color: #E5E5E5;
+}
+
+form input::placeholder {
+    color: #A0A0A0;
+}
+
+form button {
+    background-color: #FF3B3B;
+    color: #fff;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #E63939;
+}
+
+.error {
+    color: #FF3B3B;
+    font-weight: bold;
+}
+
+/* Algemene links */
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+.homepage-banner {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.homepage-banner img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.header-container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 20px; /* optionele padding voor kleine schermen */
+}
+
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.car-card {
+    background-color: #1B1D2B;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #333745;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(255, 59, 59, 0.3);
+}
+
+.car-card h3 {
+    color: #FF3B3B;
+    margin-bottom: 10px;
+}
+
+.car-card p {
+    margin: 5px 0;
+}
+
+.car-card .btn-primary {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.cars-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.car-card {
+    display: block;
+    width: 220px;       /* vaste breedte */
+    height: 320px;      /* vaste hoogte */
+    background-color: #1B1D2B;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #E5E5E5;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255,59,59,0.3);
+}
+
+.car-card img {
+    width: 100%;
+    height: 150px;          /* vaste hoogte voor alle afbeeldingen */
+    object-fit: cover;      /* crop/fit netjes */
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.view-switch {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #252836;
+    padding: 4px;
+}
+
+.view-switch.active {
+    background-color: #FF3B3B;
+}
+
+.hamburger-icon span {
+    display: block;
+    height: 3px;
+    background: #fff;
+    margin: 4px 0;
+    border-radius: 2px;
+}
+
+.grid-icon {
+    display: grid;
+    grid-template-columns: repeat(2, 10px);
+    grid-template-rows: repeat(2, 10px);
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.grid-icon span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
