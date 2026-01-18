@@ -17,8 +17,8 @@ class User {
     public function checkLogin($username, $password) {
         $user = $this->getUserByUsername($username);
         if($user && password_verify($password, $user['password'])) {
-            return $user; // login succesvol
+            return $user; 
         }
-        return false; // onjuist
+        return false;
     }
 }

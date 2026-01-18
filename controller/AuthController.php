@@ -1,5 +1,4 @@
 <?php
-// Controller: AuthController.php
 class AuthController {
     private $pdo;
 
@@ -7,9 +6,9 @@ class AuthController {
         $this->pdo = $pdo;
     }
 
-    // Pagina: index.php?page=login
     public function login(){
         $error = '';
+
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $username = trim($_POST['username']);
             $password = trim($_POST['password']);
@@ -19,9 +18,14 @@ class AuthController {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if($user && password_verify($password, $user['password'])){
+                if(session_status() === PHP_SESSION_NONE) {
+                    session_start();
+                }
+
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
+
                 header('Location: index.php?page=cars');
                 exit;
             } else {

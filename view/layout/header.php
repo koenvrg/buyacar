@@ -14,7 +14,6 @@
             <nav>
                 <?php if(isset($_SESSION['username'])){ ?>
                     <a href="index.php?page=cars">All cars</a>
-                    <a href="index.php?page=add_car">Add car</a>
                     <a href="index.php?page=logout">Logout</a>
                 <?php } else {?>
                     <a href="index.php?page=login">Login</a>

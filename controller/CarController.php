@@ -28,23 +28,16 @@ class CarController {
             $mileage = $_POST['mileage'];
             $price = $_POST['price'];
             $fuelId = $_POST['fuel_id'] ?? null;
-            $featureIds = $_POST['feature_ids'] ?? [];
+            $featureIds = $_POST['features'] ?? [];
 
-            $this->carModel->addCar(
-                $make,
-                $model,
-                $year,
-                $mileage,
-                $price,
-                $image,
-                $fuelId,
-                $featureIds
-            );
+            $this->carModel->addCar($make, $model, $year, $mileage, $price, $image, $fuelId, $featureIds);
 
             header('Location: index.php?page=cars');
             exit;
         }
 
+        $fuelTypes = $this->carModel->getFuelTypes();
+        $features = $this->carModel->getFeatures();
         require __DIR__ . '/../view/add_car.php';
     }
 
@@ -61,6 +54,9 @@ class CarController {
             exit;
         }
 
+        $fuelTypes = $this->carModel->getFuelTypes();
+        $features = $this->carModel->getFeatures();
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $image = $car['image'];
             if (isset($_FILES['image']) && $_FILES['image']['tmp_name'] !== '') {
@@ -74,19 +70,9 @@ class CarController {
             $mileage = $_POST['mileage'];
             $price = $_POST['price'];
             $fuelId = $_POST['fuel_id'] ?? null;
-            $featureIds = $_POST['feature_ids'] ?? [];
+            $featureIds = $_POST['features'] ?? [];
 
-            $this->carModel->updateCar(
-                $id,
-                $make,
-                $model,
-                $year,
-                $mileage,
-                $price,
-                $image,
-                $fuelId,
-                $featureIds
-            );
+            $this->carModel->updateCar($id, $make, $model, $year, $mileage, $price, $image, $fuelId, $featureIds);
 
             header('Location: index.php?page=cars');
             exit;
@@ -102,5 +88,21 @@ class CarController {
         }
         header('Location: index.php?page=cars');
         exit;
+    }
+
+    public function single() {
+        $id = $_GET['id'] ?? null;
+        if (!$id) {
+            header('Location: index.php?page=cars');
+            exit;
+        }
+
+        $car = $this->carModel->getCarById($id);
+        if (!$car) {
+            header('Location: index.php?page=cars');
+            exit;
+        }
+
+        require __DIR__ . '/../view/single_car.php';
     }
 }

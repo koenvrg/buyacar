@@ -1,15 +1,12 @@
 <?php
+
 // Database connectie
 try {
-    $pdo = new PDO('mysql:host=localhost;dbname=rentmycar', 'root', '');
+    $pdo = new PDO('mysql:host=localhost;dbname=rentmycar;charset=utf8mb4', 'root', '');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     die("Database fout: " . $e->getMessage());
 }
 
-// Auto-login admin (tijdelijk, voor testen)
-if(!isset($_SESSION['user_id'])){
-    $_SESSION['user_id'] = 1;
-    $_SESSION['username'] = 'admin';
-    $_SESSION['role'] = 'admin';
-}
+
