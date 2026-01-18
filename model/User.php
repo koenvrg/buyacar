@@ -21,4 +21,10 @@ class User {
         }
         return false;
     }
+
+    public function createUser($username, $email, $password, $role = 'user') {
+        $stmt = $this->pdo->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)");
+        return $stmt->execute([$username, $email, $password, $role]);
+    }
+
 }

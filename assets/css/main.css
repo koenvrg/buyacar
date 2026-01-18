@@ -138,7 +138,9 @@ form {
 
 form input[type="text"],
 form input[type="number"],
+form input[type="email"],
 form input[type="file"],
+form input[type="password"],
 form select {
     background-color: #252836;
     color: #E5E5E5;

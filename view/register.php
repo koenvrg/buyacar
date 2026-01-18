@@ -1,6 +1,6 @@
 <?php require __DIR__ . '/layout/header.php'; ?>
 
-<h1>Login</h1>
+<h1>Registreren</h1>
 
 <?php
 if (!empty($error)) {
@@ -10,10 +10,12 @@ if (!empty($error)) {
 
 <form method="post">
     <input type="text" name="username" placeholder="Gebruikersnaam" required>
+    <input type="email" name="email" placeholder="E-mail" required>
     <input type="password" name="password" placeholder="Wachtwoord" required>
-    <button type="submit">Inloggen</button>
-    <p>
-        Nog geen account? <a href="index.php?page=register">Registreren</a>
+    <input type="password" name="confirm_password" placeholder="Bevestig wachtwoord" required>
+    <button type="submit">Registreren</button>
+    <p style="text-align:center;">
+        Heb je al een account? <a href="index.php?page=login">Inloggen</a>
     </p>
 </form>
 

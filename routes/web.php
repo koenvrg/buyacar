@@ -33,10 +33,17 @@ switch($page){
         break;
 
     case 'login':
-    require __DIR__ . '/../controller/AuthController.php';
-    $authController = new AuthController($pdo);
-    $authController->login();
-    break;
+        require __DIR__ . '/../controller/AuthController.php';
+        $authController = new AuthController($pdo);
+        $authController->login();
+        break;
+
+    case 'register':
+        require __DIR__ . '/../controller/AuthController.php';
+        $authController = new AuthController($pdo);
+        $authController->register();
+        break;
+
 
 
     case 'logout':
